@@ -1,6 +1,8 @@
 import java.util.*;
 import javax.swing.*;
 import javax.swing.Timer;
+import javax.swing.plaf.DimensionUIResource;
+
 import java.time.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -29,8 +31,11 @@ class ClockDisplay extends JFrame implements ActionListener {
         c1.setLayout(new FlowLayout());
         c2.setLayout(new FlowLayout());
         l1 = new JLabel("Clock Display");
+        l1.setFont(new Font("Serif",Font.PLAIN,20));
         l2 = new JLabel("Timer Display");
+        l2.setFont(new Font("Times New Roman",Font.PLAIN,20));
         l3 = new JLabel("Stopwatch");
+        l3.setFont(new Font("Cambria Math",Font.PLAIN,20));
         b1 = new JButton("Clock");
         b1.setPreferredSize(new Dimension(100 ,50));
         b2 = new JButton("Timer");
@@ -153,7 +158,7 @@ public class JavaMiniProj {
         ClockDisplay cd = new ClockDisplay();
         JFrame.setDefaultLookAndFeelDecorated(true);
         cd.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        cd.setBounds(200, 200, 250,500);
+        cd.setBounds(200, 200, 400,500);
         cd.setVisible(true);
         cd.setTitle("Clock Application");
     }
