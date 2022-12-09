@@ -14,7 +14,7 @@ class ClockDisplay extends JFrame implements ActionListener {
     JButton b1, b2, b3, b4, b5;
     JLabel l1, l2, l3;
     Timer timer;
-    int k = 0;
+    int flag = 1;
 
     ClockDisplay() {
         c = getContentPane();
@@ -65,6 +65,7 @@ class ClockDisplay extends JFrame implements ActionListener {
                 if (s <= 0) {
                     l2.setText("Timer completed");
                     timer.stop();
+                    flag =1;
                 }
                 s--;
             }
@@ -91,18 +92,17 @@ class ClockDisplay extends JFrame implements ActionListener {
 
         if (ae.getSource() == b1)
             startClock();
-        if (ae.getSource() == b2) {
+        if (ae.getSource() == b2 && flag == 1) {
+            flag = 0;
             int time = Integer.parseInt(t1.getText());
             startTimer(time, 1000);
         }
 
-        if (ae.getSource() == b3 && k == 0) {
-            k = 1;
+        if (ae.getSource() == b3) {
             int time = 0;
             startStopwatch(time, 1000);
         }
-        if (ae.getSource() == b4 && (k == 1)) {
-            k = 0;
+        if (ae.getSource() == b4) {
             timer.stop();
         }
         if (ae.getSource() == b5) {
